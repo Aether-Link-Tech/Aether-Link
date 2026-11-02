@@ -15,7 +15,6 @@ js/       config.js           YOUR contact details, social links, form key, intr
           icons.js            icon library  (<span data-icon="ai"></span>)
           components.js       shared header + footer, dark mode, mobile menu
           main.js             reveal animation, filters, contact form
-.github/workflows/deploy.yml  publishes the site to GitHub Pages on every push to main
 robots.txt  sitemap.xml       search-engine files (update the URL when you get a domain)
 ```
 
@@ -30,10 +29,8 @@ robots.txt  sitemap.xml       search-engine files (update the URL when you get a
 | Page text                  | the matching `.html` file |
 
 ## Deploying
-Every push to `main` deploys automatically. The workflow compiles Tailwind into a small
-`css/tailwind.css`, so the live site doesn't use the Tailwind CDN.
-
-One-time setup: GitHub repo -> **Settings -> Pages -> Source: GitHub Actions**.
+GitHub Pages serves the `main` branch directly (Settings -> Pages -> Source: **Deploy from a branch**, `main`, `/ (root)`).
+Every push to `main` goes live in about a minute. There is no build step.
 
 ### When you buy a domain
 1. Repo **Settings -> Pages -> Custom domain**: enter it (e.g. `aetherlink.pk`) and tick *Enforce HTTPS*.
