@@ -32,10 +32,14 @@ jobs:
           printf '@tailwind base;\n@tailwind components;\n@tailwind utilities;\n' > /tmp/tw-input.css
           ./tailwindcss -c js/tailwind-config.js -i /tmp/tw-input.css -o css/tailwind.css --minify
           rm tailwindcss
+          # Remove the CDN scripts and load the compiled CSS AFTER styles.css,
+          # matching the CDN's order (its styles are injected last), so utilities
+          # like `hidden` still override component classes such as `.btn`.
           for f in *.html; do
-            sed -i 's|<script src="https://cdn.tailwindcss.com"></script>|<link rel="stylesheet" href="css/tailwind.css">|; \|<script src="js/tailwind-config.js"></script>|d' "$f"
+            sed -i '\|<script src="https://cdn.tailwindcss.com"></script>|d; \|<script src="js/tailwind-config.js"></script>|d; s|<link rel="stylesheet" href="css/styles.css">|<link rel="stylesheet" href="css/styles.css">\n  <link rel="stylesheet" href="css/tailwind.css">|' "$f"
           done
           if grep -L 'css/tailwind.css' *.html | grep -q .; then echo "Some pages were not switched to compiled CSS"; exit 1; fi
+          if grep -l 'cdn.tailwindcss.com' *.html | grep -q .; then echo "CDN script still present"; exit 1; fi
 
       - name: Remove files that should not be published
         run: rm -rf .github README.md CLAUDE.md
