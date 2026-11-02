@@ -6,9 +6,8 @@ Live: https://aether-link-tech.github.io/Aether-Link/  ·  Repo: https://github.
 ## Stack and architecture
 - Plain HTML pages + Tailwind CSS + vanilla JS. **No framework, no bundler, no npm.**
 - Node is **not installed** on the main dev machine (Windows). Do not add steps that need `npm` locally.
-- Tailwind runs two ways:
-  - **Locally:** Tailwind Play CDN (`<script src="https://cdn.tailwindcss.com">`) + `js/tailwind-config.js`. Open any `.html` file in a browser to preview.
-  - **Production:** `.github/workflows/deploy.yml` downloads the Tailwind v3.4.17 standalone CLI, compiles `css/tailwind.css`, swaps the CDN tags for that stylesheet, removes repo-only files, and deploys to GitHub Pages on every push to `main`.
+- Tailwind runs from the **Play CDN** (`<script src="https://cdn.tailwindcss.com">`) + `js/tailwind-config.js`, both locally and on the live site. Open any `.html` file in a browser to preview.
+- **Hosting:** GitHub Pages, **"Deploy from a branch"** (`main`, `/` root). Every push to `main` is served as-is. There is no build step and no deploy workflow, by the owner's choice.
 - Header and footer are **injected by JS** (`js/components.js`) into `<div id="site-header">` / `<div id="site-footer">` on every page. Edit nav/footer there, never per page.
 
 ## Files
@@ -18,14 +17,15 @@ Live: https://aether-link-tech.github.io/Aether-Link/  ·  Repo: https://github.
 | `js/components.js` | NAV array (menu + dropdowns), header, footer, dark-mode toggle, mobile menu, back-to-top. |
 | `js/main.js` | Icon filling, contact details from config, scroll reveal, project filters, contact form (Web3Forms, mailto fallback), `?service=` / `?project=` prefill. |
 | `js/icons.js` | Inline SVG icon map. Use `<span data-icon="name" class="block w-6 h-6"></span>`. |
-| `js/tailwind-config.js` | Theme (colours as CSS-variable RGB triplets, Poppins + Marcellus fonts). Works as browser global AND `module.exports` for the CLI build. |
+| `js/tailwind-config.js` | Theme (colours as CSS-variable RGB triplets, Poppins + Marcellus fonts). Sets the CDN's `tailwind.config`; also exports via `module.exports` in case a CLI build is added later. |
 | `css/styles.css` | Light/dark CSS variables, buttons (`.btn-*`), `.lift` cards, header dropdown, `.reveal` animation, form `.field`. |
 | `assets/` | `logo.svg` (AL monogram, hand-traced vector), `logo-full*.png` (crest, navy and white, transparent), `hero.svg`, `og-image.png` (1200x630 share image). |
 | `404.html`, `robots.txt`, `sitemap.xml`, `.nojekyll` | Pages/SEO support. |
 
 ## Conventions
-- **Every page** must keep the same `<head>` block (theme pre-script, fonts, Tailwind CDN + config, styles.css, OG tags) and the 4 scripts at the end in this order: `config.js`, `icons.js`, `components.js`, `main.js`. The deploy workflow fails if a page is missing the CDN tag it replaces.
-- **Tailwind classes must appear as complete literal strings** in `*.html` or `js/**/*.js`, or the production build will purge them. Never build class names by concatenation (`'text-' + color`). Arbitrary values (`w-[58px]`) are fine.
+- **Every page** must keep the same `<head>` block (theme pre-script, fonts, Tailwind CDN + config, styles.css, OG tags) and the 4 scripts at the end in this order: `config.js`, `icons.js`, `components.js`, `main.js`.
+- Write Tailwind classes as complete literal strings (no `'text-' + color` concatenation), so a compiled build stays possible later. Arbitrary values (`w-[58px]`) are fine.
+- The CDN injects its styles AFTER `css/styles.css`, so utilities like `hidden` override component classes like `.btn`. Any future compiled `tailwind.css` must also be linked after `styles.css`.
 - Colours: use theme tokens (`bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-brand`, `from-navy`) so dark mode works. Brand navy = logo navy `#001c3e`. Accent blue = `--brand`.
 - Internal links get `data-nav`. Links are relative (`about.html`), because the site lives under the `/Aether-Link/` sub-path.
 - Animate-on-scroll: add class `reveal` (optional `style="--d:.08s"` delay).
@@ -39,8 +39,8 @@ Live: https://aether-link-tech.github.io/Aether-Link/  ·  Repo: https://github.
   `"/c/Program Files/Google/Chrome/Application/chrome.exe" --headless=new --screenshot=out.png --window-size=1366,1500 --virtual-time-budget=6000 file:///C:/Users/pc/Desktop/Aether-Link/index.html`
   (For phone widths, headless Chrome clamps the window, so render the page inside a 390px `<iframe>` instead.)
 - Commits: the owner prefers **one commit per file**, with a message that explains what that file does or what changed. End each message with the Co-Authored-By trailer.
-- Deploy = push to `main`. Pages source is set to "GitHub Actions". Check: Actions tab → "Deploy to GitHub Pages".
-- Files that should not be published (README.md, CLAUDE.md, .github) are removed in the deploy workflow. Add new repo-only files to that `rm` line.
+- Deploy = push to `main`. GitHub's built-in "pages build and deployment" publishes it in about 30 to 60 seconds.
+- Every file in the repo is public on the site (README.md and CLAUDE.md included). Never commit secrets or private notes.
 
 ## Contact form
 Web3Forms (free, 250 submissions/month). Messages are emailed to the inbox that owns the access key in `js/config.js`. The key is public by design (it can only send to that inbox). Includes a honeypot field `botcheck`. Restrict the key to the live domain in the Web3Forms dashboard once a custom domain exists.
@@ -108,7 +108,8 @@ GitHub Pages only serves static files. For backends (chatbot, admin, CRM):
 - Stack: Next.js or Astro + Supabase Auth + Supabase Storage, or a ready tool (e.g. Notion client portals) to start.
 
 ### 10. Quality, accessibility and performance
-- Add **Lighthouse CI** to the workflow to fail builds that regress performance, accessibility or SEO scores.
+- **Compiled Tailwind instead of the CDN** (~19 KB vs ~400 KB, faster first load): switch Pages source to "GitHub Actions" and add a workflow that runs the Tailwind v3 standalone CLI with `-c js/tailwind-config.js`, removes the two CDN `<script>` tags and links `css/tailwind.css` after `styles.css`. A working version exists in git history (`.github/workflows/deploy.yml`, removed in favour of branch deploys).
+- Add **Lighthouse CI** to a workflow to fail builds that regress performance, accessibility or SEO scores.
 - Self-host fonts (download Poppins/Marcellus woff2 into `assets/fonts/`) to remove the Google Fonts request.
 - Convert large PNGs to WebP/AVIF; add `loading="lazy"` to below-the-fold images.
 - Test keyboard navigation of the dropdown menu and the dark-mode contrast.
