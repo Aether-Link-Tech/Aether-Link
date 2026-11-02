@@ -21,7 +21,7 @@ window.AETHER_CONFIG = {
 
   // Contact form: get a free access key at https://web3forms.com (enter the email above).
   // While empty, the form falls back to opening the visitor's email app.
-  formAccessKey: "",
+  formAccessKey: "29eb1807-2ecd-4a2f-ac7c-9d7188178a3c",
 
   // Add or remove social links freely. Supported icons: linkedin, github, x, facebook, instagram
   social: {
