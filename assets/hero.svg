@@ -1,0 +1,86 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 440" width="520" height="440" role="img" aria-label="Glowing digital globe and AI assistant">
+  <defs>
+    <radialGradient id="h-glow" cx=".5" cy=".5" r=".5">
+      <stop offset="0" stop-color="#53b0ff" stop-opacity=".55"/>
+      <stop offset="1" stop-color="#1769ff" stop-opacity="0"/>
+    </radialGradient>
+    <radialGradient id="h-globe" cx=".38" cy=".32" r=".75">
+      <stop offset="0" stop-color="#5fb4ff"/>
+      <stop offset=".55" stop-color="#1769ff"/>
+      <stop offset="1" stop-color="#06214f"/>
+    </radialGradient>
+    <linearGradient id="h-bot" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#d6e4ff"/>
+    </linearGradient>
+    <linearGradient id="h-visor" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0a2f6e"/>
+      <stop offset="1" stop-color="#06143a"/>
+    </linearGradient>
+    <clipPath id="h-clip"><circle cx="300" cy="215" r="150"/></clipPath>
+  </defs>
+
+  <!-- glow -->
+  <circle cx="300" cy="215" r="215" fill="url(#h-glow)"/>
+
+  <!-- orbit (back) -->
+  <ellipse cx="300" cy="215" rx="205" ry="62" fill="none" stroke="#9cd0ff" stroke-opacity=".45" stroke-width="2" transform="rotate(-18 300 215)"/>
+
+  <!-- globe -->
+  <circle cx="300" cy="215" r="150" fill="url(#h-globe)"/>
+  <g clip-path="url(#h-clip)" fill="none" stroke="#bfe0ff" stroke-opacity=".45" stroke-width="1.6">
+    <ellipse cx="300" cy="215" rx="150" ry="50"/>
+    <ellipse cx="300" cy="215" rx="150" ry="100"/>
+    <path d="M150 215h300M300 65v300"/>
+    <ellipse cx="300" cy="215" rx="50" ry="150"/>
+    <ellipse cx="300" cy="215" rx="100" ry="150"/>
+  </g>
+  <!-- network nodes on globe -->
+  <g stroke="#e6f3ff" stroke-width="1.6" stroke-opacity=".9">
+    <path d="M232 140L300 118L372 152L398 228L346 296L262 300L214 236Z" fill="none"/>
+    <path d="M232 140L300 200L372 152M300 200L398 228M300 200L346 296M300 200L262 300M300 200L214 236M300 118L300 200" fill="none" stroke-opacity=".5"/>
+  </g>
+  <g fill="#fff">
+    <circle cx="232" cy="140" r="5"/><circle cx="300" cy="118" r="5"/><circle cx="372" cy="152" r="5"/>
+    <circle cx="398" cy="228" r="5"/><circle cx="346" cy="296" r="5"/><circle cx="262" cy="300" r="5"/>
+    <circle cx="214" cy="236" r="5"/><circle cx="300" cy="200" r="8" fill="#53b0ff" stroke="#fff" stroke-width="3"/>
+  </g>
+  <circle cx="300" cy="215" r="150" fill="none" stroke="#9cd0ff" stroke-opacity=".6" stroke-width="2"/>
+
+  <!-- orbit (front arc) + satellites -->
+  <path d="M108 268 A205 62 -18 0 0 498 152" fill="none" stroke="#9cd0ff" stroke-width="2.5" stroke-opacity=".8"/>
+  <circle cx="498" cy="152" r="7" fill="#53b0ff" stroke="#fff" stroke-width="2.5"/>
+  <circle cx="190" cy="290" r="5" fill="#fff"/>
+
+  <!-- AI assistant robot -->
+  <g transform="translate(40 190)">
+    <ellipse cx="78" cy="232" rx="62" ry="10" fill="#06214f" opacity=".25"/>
+    <!-- antenna -->
+    <path d="M78 22V2" stroke="#9cb8e8" stroke-width="4" stroke-linecap="round"/>
+    <circle cx="78" cy="2" r="7" fill="#53b0ff" stroke="#fff" stroke-width="2.5"/>
+    <!-- head -->
+    <rect x="22" y="22" width="112" height="84" rx="34" fill="url(#h-bot)" stroke="#b9cdf2" stroke-width="2"/>
+    <rect x="34" y="40" width="88" height="48" rx="22" fill="url(#h-visor)"/>
+    <ellipse cx="60" cy="64" rx="9" ry="10" fill="#53b0ff"/>
+    <ellipse cx="96" cy="64" rx="9" ry="10" fill="#53b0ff"/>
+    <circle cx="63" cy="60" r="3" fill="#fff"/><circle cx="99" cy="60" r="3" fill="#fff"/>
+    <rect x="14" y="52" width="10" height="26" rx="5" fill="#9cb8e8"/>
+    <rect x="132" y="52" width="10" height="26" rx="5" fill="#9cb8e8"/>
+    <!-- body -->
+    <rect x="58" y="104" width="40" height="12" rx="4" fill="#9cb8e8"/>
+    <path d="M30 140c0-14 11-24 25-24h46c14 0 25 10 25 24v54c0 12-10 22-22 22H52c-12 0-22-10-22-22z" fill="url(#h-bot)" stroke="#b9cdf2" stroke-width="2"/>
+    <circle cx="78" cy="158" r="17" fill="#1769ff"/>
+    <path d="M70 158l6 6 11-12" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- arms -->
+    <path d="M30 146c-14 6-20 22-16 40" fill="none" stroke="#d6e4ff" stroke-width="13" stroke-linecap="round"/>
+    <path d="M126 146c18-6 30-26 32-48" fill="none" stroke="#d6e4ff" stroke-width="13" stroke-linecap="round"/>
+    <circle cx="158" cy="94" r="10" fill="#fff" stroke="#b9cdf2" stroke-width="2"/>
+  </g>
+
+  <!-- chat bubble -->
+  <g transform="translate(96 100)">
+    <rect x="0" y="0" width="92" height="44" rx="14" fill="#fff" stroke="#b9cdf2" stroke-width="1.5"/>
+    <path d="M18 44l-4 14 16-14z" fill="#fff"/>
+    <circle cx="28" cy="22" r="5" fill="#1769ff"/><circle cx="46" cy="22" r="5" fill="#53b0ff"/><circle cx="64" cy="22" r="5" fill="#9cd0ff"/>
+  </g>
+</svg>
