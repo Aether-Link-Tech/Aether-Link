@@ -56,9 +56,13 @@
   /* 5. Pre-select the service when arriving from "Discuss this service" (contact.html?service=web) */
   var form = document.getElementById('contact-form');
   if (!form) return;
-  var pre = new URLSearchParams(location.search).get('service');
+  var params = new URLSearchParams(location.search);
+  var pre = params.get('service'), project = params.get('project');
   if (pre && form.service) {
     $$('option', form.service).forEach(function (o) { if (o.dataset.key === pre) o.selected = true; });
+  }
+  if (project && form.msg && !form.msg.value) {
+    form.msg.value = 'Hi Aether Link, I would like a project similar to your "' + project + '".\n\nAbout my project: ';
   }
 
   /* 6. Contact form.
@@ -75,10 +79,11 @@
     e.preventDefault();
     var d = new FormData(form);
     if (d.get('botcheck')) return; // spam bot filled the hidden field
-    var subject = 'Website enquiry: ' + d.get('service');
+    var subject = 'New enquiry from ' + d.get('name') + ': ' + d.get('service');
 
     if (!C.formAccessKey) {
-      var body = 'Name: ' + d.get('name') + '\nEmail: ' + d.get('email') + '\nService: ' + d.get('service') + '\n\n' + d.get('msg');
+      var body = 'Name: ' + d.get('name') + '\nEmail: ' + d.get('email') + '\nPhone: ' + (d.get('phone') || '-') +
+        '\nService: ' + d.get('service') + '\nBudget: ' + (d.get('budget') || 'Not sure yet') + '\n\n' + d.get('msg');
       window.location.href = 'mailto:' + C.email + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
       return;
     }
@@ -94,7 +99,9 @@
         from_name: 'Aether Link website',
         name: d.get('name'),
         email: d.get('email'),
+        phone: d.get('phone') || '-',
         service: d.get('service'),
+        budget: d.get('budget') || 'Not sure yet',
         message: d.get('msg')
       })
     }).then(function (r) { return r.json(); }).then(function (res) {
