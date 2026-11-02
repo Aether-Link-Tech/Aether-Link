@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="12.6 12.6 74.8 74.8" width="64" height="64" role="img" aria-label="Aether Link logo">
+  <defs>
+    <g id="al">
+      <!-- A, with its right leg flowing into the L foot -->
+      <path d="M44.5 29.7 L59.9 63 L78.4 63 L75.8 68.3 L56.2 68.3 L44.4 42.2 L39 53 L47.5 53 L49.7 58.2 L36.4 58.2 L29.6 71.2 L22.6 73.4 Z"/>
+      <!-- L upright -->
+      <path d="M54.1 30.5 Q56.8 30.7 59.2 31.9 L59.1 57.2 L54.1 46.1 Z"/>
+    </g>
+  </defs>
+  <circle cx="50" cy="50" r="37.1" fill="#001c3e"/>
+  <circle cx="50" cy="50" r="32.2" fill="none" stroke="#fff" stroke-width="2"/>
+  <use xlink:href="#al" href="#al" fill="none" stroke="#001c3e" stroke-width="3" stroke-linejoin="round"/>
+  <use xlink:href="#al" href="#al" fill="#fff"/>
+</svg>
