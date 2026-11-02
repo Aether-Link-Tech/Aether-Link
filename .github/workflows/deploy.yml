@@ -38,7 +38,7 @@ jobs:
           if grep -L 'css/tailwind.css' *.html | grep -q .; then echo "Some pages were not switched to compiled CSS"; exit 1; fi
 
       - name: Remove files that should not be published
-        run: rm -rf .github README.md
+        run: rm -rf .github README.md CLAUDE.md
 
       - uses: actions/configure-pages@v5
       - uses: actions/upload-pages-artifact@v3
