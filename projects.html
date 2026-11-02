@@ -4,12 +4,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Projects | Aether Link</title>
-  <meta name="description" content="Examples of AI, web, design and networking projects Aether Link can build for your business.">
+  <meta name="description" content="Projects built by Aether Link: advanced RAG systems, an AI productivity mobile app, data science and machine learning pipelines.">
   <meta name="theme-color" content="#1769ff">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Aether Link">
   <meta property="og:title" content="Projects | Aether Link">
-  <meta property="og:description" content="Examples of AI, web, design and networking projects Aether Link can build for your business.">
+  <meta property="og:description" content="Projects built by Aether Link: advanced RAG systems, an AI productivity mobile app, data science and machine learning pipelines.">
   <meta property="og:image" content="https://aether-link-tech.github.io/Aether-Link/assets/og-image.png">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="icon" href="assets/logo.svg" type="image/svg+xml">
@@ -28,64 +28,62 @@
   <section class="page-hero py-16">
     <div class="relative mx-auto max-w-6xl px-4">
       <p class="text-xs text-muted mb-3"><a data-nav href="index.html" class="text-brand hover:underline">Home</a> / Projects</p>
-      <h1 class="text-4xl sm:text-5xl font-bold leading-tight">What we can <span class="text-brand">build for you</span></h1>
-      <p class="mt-3 max-w-xl text-muted">We are a new studio, so here are examples of the projects we are ready to deliver. Our case studies will appear here as we complete them.</p>
+      <h1 class="text-4xl sm:text-5xl font-bold leading-tight">Projects we have <span class="text-brand">built</span></h1>
+      <p class="mt-3 max-w-xl text-muted">From AI assistants to machine learning pipelines, here is a look at our work. Like what you see? We can build something similar for you.</p>
     </div>
   </section>
 
   <section class="py-14">
     <div class="mx-auto max-w-6xl px-4">
       <div class="flex flex-wrap gap-2.5 mb-7" role="group" aria-label="Filter projects">
-        <button class="filter-btn on px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="all">All</button>
-        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="ai">AI</button>
-        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="web">Web &amp; App</button>
-        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="design">Design</button>
-        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="network">Networking</button>
+        <button class="filter-btn on px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="all" aria-pressed="true">All</button>
+        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="ai" aria-pressed="false">AI &amp; LLM</button>
+        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="mobile" aria-pressed="false">Mobile Apps</button>
+        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="data" aria-pressed="false">Data Science</button>
+        <button class="filter-btn px-5 py-2 rounded-full border-[1.5px] border-line bg-surface text-sm font-medium" data-f="ml" aria-pressed="false">ML Engineering</button>
       </div>
 
-      <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-        <article data-cat="ai" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#1769ff;--c2:#0a2d7a"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">AI &amp; Automation</span>
-          <h3 class="text-lg font-semibold mb-1">Smart Support Assistant</h3>
-          <p class="text-sm text-muted">Chatbot that handles common customer questions around the clock.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
+      <div class="grid gap-6 md:grid-cols-2">
+        <article data-cat="ai" class="lift reveal relative overflow-hidden flex flex-col bg-surface border border-line rounded-2xl p-6 shadow-soft">
+          <div class="thumb grid place-items-center" style="--c1:#1769ff;--c2:#06214f"><span data-icon="rag" class="relative z-10 block w-16 h-16 text-white"></span></div>
+          <span class="self-start text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">AI &amp; LLM</span>
+          <h3 class="text-lg font-semibold mb-1">Advanced RAG Knowledge Assistant</h3>
+          <p class="text-sm text-muted flex-1">An AI assistant that answers questions from a company&#39;s own documents, with sources for every answer. Built on an advanced retrieval-augmented generation (RAG) pipeline that keeps answers accurate and grounded.</p>
+          <div class="flex flex-wrap gap-1.5 mt-4"><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">LLMs</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Vector search</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Python</span></div>
+          <a data-nav href="contact.html?service=ai&amp;project=Advanced%20RAG%20Knowledge%20Assistant" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build something like this <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
         </article>
-        <article data-cat="web" style="--d:.06s" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#3dc5ff;--c2:#1769ff"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Web &amp; App</span>
-          <h3 class="text-lg font-semibold mb-1">Retail E-commerce Platform</h3>
-          <p class="text-sm text-muted">Fast storefront with inventory sync and secure checkout.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
+        <article data-cat="mobile" style="--d:0.08s" class="lift reveal relative overflow-hidden flex flex-col bg-surface border border-line rounded-2xl p-6 shadow-soft">
+          <div class="thumb grid place-items-center" style="--c1:#00b4a6;--c2:#1769ff"><span data-icon="mobile" class="relative z-10 block w-16 h-16 text-white"></span></div>
+          <span class="self-start text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Mobile App</span>
+          <h3 class="text-lg font-semibold mb-1">AI Productivity Mobile App</h3>
+          <p class="text-sm text-muted flex-1">A smart assistant in your pocket: it schedules meetings, summarises long reports into key points and drafts replies to your emails, all from one app.</p>
+          <div class="flex flex-wrap gap-1.5 mt-4"><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Mobile</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">AI assistant</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Calendar &amp; email</span></div>
+          <a data-nav href="contact.html?service=web&amp;project=AI%20Productivity%20Mobile%20App" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build something like this <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
         </article>
-        <article data-cat="design" style="--d:.12s" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#7b61ff;--c2:#1769ff"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Design</span>
-          <h3 class="text-lg font-semibold mb-1">Fintech Brand Identity</h3>
-          <p class="text-sm text-muted">Logo system, colour palette and marketing kit for a young startup.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
+        <article data-cat="data" class="lift reveal relative overflow-hidden flex flex-col bg-surface border border-line rounded-2xl p-6 shadow-soft">
+          <div class="thumb grid place-items-center" style="--c1:#7b61ff;--c2:#1769ff"><span data-icon="chart" class="relative z-10 block w-16 h-16 text-white"></span></div>
+          <span class="self-start text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Data Science</span>
+          <h3 class="text-lg font-semibold mb-1">Data Science &amp; Analytics</h3>
+          <p class="text-sm text-muted flex-1">Turning raw business data into clear answers: cleaning and exploring data, building forecasts and presenting the results in easy-to-read dashboards.</p>
+          <div class="flex flex-wrap gap-1.5 mt-4"><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Python</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Analytics</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Dashboards</span></div>
+          <a data-nav href="contact.html?service=data&amp;project=Data%20Science%20%26%20Analytics" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build something like this <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
         </article>
-        <article data-cat="network" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#0a2f6e;--c2:#2f7bff"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Networking</span>
-          <h3 class="text-lg font-semibold mb-1">Multi-Office Network Rollout</h3>
-          <p class="text-sm text-muted">Secure, monitored network connecting three branch offices.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
+        <article data-cat="ml" style="--d:0.08s" class="lift reveal relative overflow-hidden flex flex-col bg-surface border border-line rounded-2xl p-6 shadow-soft">
+          <div class="thumb grid place-items-center" style="--c1:#0a2f6e;--c2:#2f7bff"><span data-icon="flow" class="relative z-10 block w-16 h-16 text-white"></span></div>
+          <span class="self-start text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">ML Engineering</span>
+          <h3 class="text-lg font-semibold mb-1">End-to-End ML Pipeline</h3>
+          <p class="text-sm text-muted flex-1">An automated machine learning pipeline that takes data from ingestion and feature engineering through training, evaluation and deployment, so models stay up to date.</p>
+          <div class="flex flex-wrap gap-1.5 mt-4"><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">MLOps</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Model training</span><span class="text-[11px] font-medium text-muted border border-line rounded-full px-2.5 py-0.5">Deployment</span></div>
+          <a data-nav href="contact.html?service=data&amp;project=End-to-End%20ML%20Pipeline" class="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build something like this <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
         </article>
-        <article data-cat="web" style="--d:.06s" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#00b4a6;--c2:#1769ff"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">Web &amp; App</span>
-          <h3 class="text-lg font-semibold mb-1">Booking &amp; Scheduling App</h3>
-          <p class="text-sm text-muted">Cross-platform app for appointments, reminders and payments.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
-        </article>
-        <article data-cat="ai" style="--d:.12s" class="lift reveal relative overflow-hidden bg-surface border border-line rounded-2xl p-6 shadow-soft">
-          <div class="thumb" style="--c1:#4d9bff;--c2:#06214f"></div>
-          <span class="inline-block text-[11px] font-semibold text-brand bg-brand/10 px-3 py-0.5 rounded-full mb-2">AI &amp; Automation</span>
-          <h3 class="text-lg font-semibold mb-1">Reporting Automation Suite</h3>
-          <p class="text-sm text-muted">Weekly reports built automatically from scattered spreadsheets.</p>
-          <a data-nav href="contact.html" class="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-brand hover:gap-3 transition-all">Build this with us <span data-icon="arrow" class="block w-3.5 h-3.5"></span></a>
-        </article>
+      </div>
+
+      <div class="reveal mt-12 rounded-2xl p-8 sm:p-10 bg-gradient-to-br from-navy to-navy2 text-white flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div>
+          <h2 class="text-2xl font-bold mb-1">Have your own idea?</h2>
+          <p class="text-sm text-[#d3e0fb] max-w-xl">Tell us what you want to build: an AI tool, an app, a website or a data project. We will reply with a plan, timeline and price.</p>
+        </div>
+        <a data-nav href="contact.html" class="btn btn-white self-start md:self-auto">Start your project <span data-icon="arrow" class="block w-4 h-4"></span></a>
       </div>
     </div>
   </section>
