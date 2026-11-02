@@ -7,6 +7,7 @@
     { id: 'home', label: 'Home', href: 'index.html' },
     { id: 'services', label: 'Services', href: 'services.html', children: [
       ['AI Solutions & Automation', 'services.html#ai'],
+      ['Data Science & ML', 'services.html#data'],
       ['Web & App Development', 'services.html#web'],
       ['Networking & Technical', 'services.html#network'],
       ['Graphic & Digital Design', 'services.html#design'],
@@ -25,7 +26,7 @@
   /* ---------- Header ---------- */
   var desktop = NAV.map(function (n) {
     var active = n.id === current ? ' active' : '';
-    var link = '<a data-nav href="' + n.href + '" class="nav-link' + active + ' inline-flex items-center gap-1.5 px-4 py-2 rounded-full text-sm font-medium">' +
+    var link = '<a data-nav href="' + n.href + '" class="nav-link' + active + ' inline-flex items-center gap-1 whitespace-nowrap px-3 xl:px-4 py-2 rounded-full text-sm font-medium">' +
       n.label + (n.children ? '<span data-icon="chev" class="chev block w-3 h-3"></span>' : '') + '</a>';
     if (!n.children) return '<li>' + link + '</li>';
     var dd = n.children.map(function (c) { return '<a data-nav href="' + c[1] + '" class="block px-4 py-2.5 rounded-lg text-sm">' + c[0] + '</a>'; }).join('');
@@ -42,18 +43,18 @@
 
   var header =
     '<header class="sticky top-0 z-50 bg-surface/90 backdrop-blur border-b border-line">' +
-      '<div class="mx-auto max-w-6xl px-4 h-[78px] flex items-center justify-between gap-4">' +
-        '<a data-nav href="index.html" class="brand flex items-center gap-3.5" aria-label="Aether Link home">' +
-          '<img src="assets/logo.svg" alt="" width="58" height="58" class="logo-spin w-12 h-12 sm:w-[58px] sm:h-[58px]">' +
-          '<span class="hidden xs:block w-px h-11 bg-ink/50"></span>' +
-          '<span class="leading-tight"><span class="block font-display text-xl sm:text-2xl tracking-[.12em]">AETHER LINK</span>' +
-          '<span class="hidden sm:block text-[10px] text-muted font-medium">Connecting Ideas, Building Solutions.</span></span>' +
+      '<div class="mx-auto max-w-7xl px-4 h-[72px] flex items-center justify-between gap-3">' +
+        '<a data-nav href="index.html" class="brand flex items-center gap-3 shrink-0" aria-label="Aether Link home">' +
+          '<img src="assets/logo.svg" alt="" width="58" height="58" class="logo-spin w-11 h-11 sm:w-12 sm:h-12">' +
+          '<span class="hidden xs:block w-px h-10 bg-ink/30"></span>' +
+          '<span class="leading-tight whitespace-nowrap"><span class="block font-display text-lg sm:text-xl xl:text-2xl tracking-[.12em]">AETHER LINK</span>' +
+          '<span class="hidden sm:block lg:hidden xl:block text-[10px] text-muted font-medium">Connecting Ideas, Building Solutions.</span></span>' +
         '</a>' +
-        '<nav class="hidden lg:block" aria-label="Main"><ul class="flex items-center gap-1">' + desktop + '</ul></nav>' +
-        '<div class="flex items-center gap-2.5">' +
+        '<nav class="hidden lg:block" aria-label="Main"><ul class="flex items-center gap-0.5 xl:gap-1">' + desktop + '</ul></nav>' +
+        '<div class="flex items-center gap-2 shrink-0">' +
           '<button id="theme-btn" aria-label="Toggle dark mode" title="Toggle dark mode" class="w-10 h-10 rounded-full border border-line bg-surface grid place-items-center hover:border-brand hover:rotate-[25deg] hover:scale-110 transition">' +
             '<span data-icon="sun" class="block w-5 h-5 dark:hidden"></span><span data-icon="moon" class="hidden w-5 h-5 dark:block"></span></button>' +
-          '<a data-nav href="contact.html" class="btn btn-nav hidden md:inline-flex">Get in Touch <span data-icon="arrow" class="block w-4 h-4"></span></a>' +
+          '<a data-nav href="contact.html" class="btn btn-nav hidden md:inline-flex lg:hidden xl:inline-flex">Get in Touch <span data-icon="arrow" class="block w-4 h-4"></span></a>' +
           '<button id="burger" class="burger lg:hidden w-11 h-11 rounded-xl border border-line bg-surface grid place-items-center" aria-label="Open menu" aria-expanded="false"><span class="burger-line"></span></button>' +
         '</div>' +
       '</div>' +
@@ -76,7 +77,7 @@
           '<div><h4 class="text-white font-semibold mb-3">Company</h4>' +
             '<a data-nav class="foot-link" href="index.html">Home</a><a data-nav class="foot-link" href="about.html">About</a><a data-nav class="foot-link" href="projects.html">Projects</a><a data-nav class="foot-link" href="contact.html">Contact</a></div>' +
           '<div><h4 class="text-white font-semibold mb-3">Services</h4>' +
-            '<a data-nav class="foot-link" href="services.html#ai">AI &amp; Automation</a><a data-nav class="foot-link" href="services.html#web">Web &amp; App</a><a data-nav class="foot-link" href="services.html#network">Networking</a><a data-nav class="foot-link" href="services.html#design">Design</a><a data-nav class="foot-link" href="services.html#it">IT Consulting</a></div>' +
+            '<a data-nav class="foot-link" href="services.html#ai">AI &amp; Automation</a><a data-nav class="foot-link" href="services.html#data">Data Science &amp; ML</a><a data-nav class="foot-link" href="services.html#web">Web &amp; App</a><a data-nav class="foot-link" href="services.html#network">Networking</a><a data-nav class="foot-link" href="services.html#design">Design</a><a data-nav class="foot-link" href="services.html#it">IT Consulting</a></div>' +
           '<div><h4 class="text-white font-semibold mb-3">Get in touch</h4>' +
             (C.email ? '<a class="foot-link break-all" href="mailto:' + C.email + '">' + C.email + '</a>' : '') +
             (C.phone ? '<a class="foot-link" href="tel:' + C.phone.replace(/[^+\d]/g, '') + '">' + C.phone + '</a>' : '') +
