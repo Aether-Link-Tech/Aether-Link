@@ -66,9 +66,15 @@
             <label class="text-sm font-semibold">Email<input class="field" name="email" type="email" required placeholder="you@example.com" autocomplete="email"></label>
           </div>
           <label class="text-sm font-semibold">Service
-            <select class="field" name="service"><option data-key="ai">AI Solutions &amp; Automation</option><option data-key="web">Web &amp; App Development</option><option data-key="network">Networking &amp; Technical Solutions</option><option data-key="design">Graphic &amp; Digital Design</option><option data-key="it">IT Projects &amp; Consulting</option><option data-key="other">Something else</option></select>
+            <select class="field" name="service"><option data-key="ai">AI Solutions &amp; Automation</option><option data-key="data">Data Science &amp; Machine Learning</option><option data-key="web">Web &amp; App Development</option><option data-key="network">Networking &amp; Technical Solutions</option><option data-key="design">Graphic &amp; Digital Design</option><option data-key="it">IT Projects &amp; Consulting</option><option data-key="other">Something else</option></select>
           </label>
-          <label class="text-sm font-semibold">Message<textarea class="field min-h-[130px] resize-y" name="msg" required placeholder="Tell us about your project"></textarea></label>
+          <div class="grid gap-4 sm:grid-cols-2">
+          <label class="text-sm font-semibold">Budget <span class="font-normal text-muted">(optional)</span>
+            <select class="field" name="budget"><option value="">Not sure yet</option><option>Under $500</option><option>$500 - $2,000</option><option>$2,000 - $5,000</option><option>$5,000+</option></select>
+          </label>
+          <label class="text-sm font-semibold">Phone / WhatsApp <span class="font-normal text-muted">(optional)</span><input class="field" name="phone" type="tel" placeholder="+92 300 0000000" autocomplete="tel"></label>
+          </div>
+          <label class="text-sm font-semibold">Message<textarea class="field min-h-[130px] resize-y" name="msg" required placeholder="What would you like us to build? Share your goals, features and any deadline."></textarea></label>
           <button class="btn btn-primary" type="submit">Send Message <span data-icon="arrow" class="block w-4 h-4"></span></button>
           <p id="form-status" class="text-sm" role="status" aria-live="polite"></p>
         </form>
