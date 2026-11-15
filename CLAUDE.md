@@ -1,7 +1,8 @@
-# CLAUDE.md: Aether Link company website
+# CLAUDE.md: Aether Nova company website
 
-Static marketing site for **Aether Link**, an AI / software startup from Pakistan.
+Static marketing site for **Aether Nova** (formerly Aether Link), an AI / software startup from Pakistan.
 Live: https://aether-link-tech.github.io/Aether-Link/  ·  Repo: https://github.com/Aether-Link-Tech/Aether-Link
+(The repo, GitHub org, Pages URL and email still carry the old "Aether Link" name until the owner renames them. Visible site text says "Aether Nova".)
 
 ## Stack and architecture
 - Plain HTML pages + Tailwind CSS + vanilla JS. **No framework, no bundler, no npm.**
@@ -17,22 +18,25 @@ Live: https://aether-link-tech.github.io/Aether-Link/  ·  Repo: https://github.
 | `js/components.js` | NAV array (menu + dropdowns), header, footer, dark-mode toggle, mobile menu, back-to-top. |
 | `js/main.js` | Icon filling, contact details from config, scroll reveal, project filters, contact form (Web3Forms, mailto fallback), `?service=` / `?project=` prefill. |
 | `js/icons.js` | Inline SVG icon map. Use `<span data-icon="name" class="block w-6 h-6"></span>`. |
-| `js/tailwind-config.js` | Theme (colours as CSS-variable RGB triplets, Poppins + Marcellus fonts). Sets the CDN's `tailwind.config`; also exports via `module.exports` in case a CLI build is added later. |
-| `css/styles.css` | Light/dark CSS variables, buttons (`.btn-*`), `.lift` cards, header dropdown, `.reveal` animation, form `.field`. |
-| `assets/` | `logo.svg` (AL monogram, hand-traced vector), `logo-full*.png` (crest, navy and white, transparent), `hero.svg`, `og-image.png` (1200x630 share image). |
+| `js/tailwind-config.js` | Theme (colours as CSS-variable RGB triplets; fonts: Inter body, Plus Jakarta Sans headings `font-head`, Archivo expanded wordmark `font-display`). Sets the CDN's `tailwind.config`; also exports via `module.exports` in case a CLI build is added later. |
+| `css/styles.css` | Light/dark CSS variables, `.wordmark`, `.text-grad`, buttons (`.btn-*`), `.lift` cards with cursor spotlight, header + scroll progress, hero orbit animation, `.marquee`, `.grid-bg`/`.glow`/`.watermark` backgrounds, `.band`, `.reveal`, form `.field`. |
+| `assets/` | `logo.svg` (Aether Nova symbol, hand-traced vector of `brand/aether-nova-symbol.jpg`; used for header, footer, favicon, hero and watermark), `brand/` (the owner's original logo JPEGs: stacked, horizontal, symbol), `og-image.png` (1200x630 share image made from the stacked logo). |
 | `404.html`, `robots.txt`, `sitemap.xml`, `.nojekyll` | Pages/SEO support. |
 
 ## Conventions
 - **Every page** must keep the same `<head>` block (theme pre-script, fonts, Tailwind CDN + config, styles.css, OG tags) and the 4 scripts at the end in this order: `config.js`, `icons.js`, `components.js`, `main.js`.
 - Write Tailwind classes as complete literal strings (no `'text-' + color` concatenation), so a compiled build stays possible later. Arbitrary values (`w-[58px]`) are fine.
 - The CDN injects its styles AFTER `css/styles.css`, so utilities like `hidden` override component classes like `.btn`. Any future compiled `tailwind.css` must also be linked after `styles.css`.
-- Colours: use theme tokens (`bg-surface`, `text-ink`, `text-muted`, `border-line`, `text-brand`, `from-navy`) so dark mode works. Brand navy = logo navy `#001c3e`. Accent blue = `--brand`.
+- Colours: use theme tokens (`bg-page`, `bg-surface`, `bg-surface2`, `text-ink`, `text-muted`, `border-line`, `text-brand`, `from-navy`) so dark mode works. Palette comes from the logo: royal blue `#1d4ed8` (light) / `#7da5ff` (dark) for text and accents, cyan and violet accents, deep navy for dark bands. Filled backgrounds that carry white text use `bg-solid` (stays `#2563eb`-ish in dark mode for contrast), never `bg-brand`. Primary buttons and brand highlights use the blue to violet gradient (`.btn-primary`, `.text-grad`).
+- Logo = `assets/logo.svg` symbol + the text wordmark `<span class="wordmark">AETHER <span class="text-grad">NOVA</span></span>` (live text, so it adapts to light/dark). Do not use the JPEGs in `assets/brand/` on the site (white backgrounds break dark mode).
+- Theme: saved choice in `localStorage['an-theme']`; with no saved choice it follows the device setting, including live changes.
 - Internal links get `data-nav`. Links are relative (`about.html`), because the site lives under the `/Aether-Link/` sub-path.
 - Animate-on-scroll: add class `reveal` (optional `style="--d:.08s"` delay).
 - Contact rows that read from config use `data-c="mail|tel|wa|map|hours|social-<name>"` inside an `.info-row`. The whole row hides when the value is empty.
 - Project cards: `data-cat` must match a `.filter-btn[data-f]`. "Build something like this" links use `contact.html?service=<key>&project=<name>`. Service keys: `ai, data, web, network, design, it, other` (match `<option data-key>` in contact.html).
 - **Honesty rule:** the company is a young startup. Do not add invented stats, client counts, testimonials or fake case studies. Placeholder content must be clearly marked or hidden.
-- Wordmark "AETHER LINK" uses `font-display` (Marcellus); body text uses Poppins.
+- Wordmark "AETHER NOVA" uses `.wordmark` (Archivo, `font-stretch:125%`, bold, wide tracking), matching the logo lettering. Headings use Plus Jakarta Sans (set globally on h1 to h4 in styles.css); body uses Inter.
+- Motion (orbit rings, glows, marquee, rotating hero word) is all switched off under `prefers-reduced-motion`.
 
 ## Workflow
 - Preview: open the HTML file directly, or take headless screenshots with Chrome:
@@ -88,7 +92,7 @@ Ordered roughly from easiest / highest value to largest effort. Each item notes 
   - API keys must NEVER be in front-end JS. Run a small backend: **Cloudflare Workers** (free tier) or Vercel/Netlify functions.
   - The worker receives the question, retrieves context (vector DB such as Supabase pgvector, Pinecone or Qdrant), and calls an LLM (e.g. the Claude API with the latest Claude model), then streams the answer back.
   - Add a floating chat button in `components.js`.
-- **AI project estimator:** a form where visitors describe a project and get an instant rough scope/timeline, then a "send to Aether Link" button that posts to the lead pipeline.
+- **AI project estimator:** a form where visitors describe a project and get an instant rough scope/timeline, then a "send to Aether Nova" button that posts to the lead pipeline.
 - **Live demos:** embed small public demos of your projects (RAG, summariser) on the Projects page.
 
 ### 7. Moving beyond static hosting
@@ -110,7 +114,7 @@ GitHub Pages only serves static files. For backends (chatbot, admin, CRM):
 ### 10. Quality, accessibility and performance
 - **Compiled Tailwind instead of the CDN** (~19 KB vs ~400 KB, faster first load): switch Pages source to "GitHub Actions" and add a workflow that runs the Tailwind v3 standalone CLI with `-c js/tailwind-config.js`, removes the two CDN `<script>` tags and links `css/tailwind.css` after `styles.css`. A working version exists in git history (`.github/workflows/deploy.yml`, removed in favour of branch deploys).
 - Add **Lighthouse CI** to a workflow to fail builds that regress performance, accessibility or SEO scores.
-- Self-host fonts (download Poppins/Marcellus woff2 into `assets/fonts/`) to remove the Google Fonts request.
+- Self-host fonts (download Inter / Plus Jakarta Sans / Archivo woff2 into `assets/fonts/`) to remove the Google Fonts request.
 - Convert large PNGs to WebP/AVIF; add `loading="lazy"` to below-the-fold images.
 - Test keyboard navigation of the dropdown menu and the dark-mode contrast.
 
