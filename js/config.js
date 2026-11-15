@@ -1,5 +1,5 @@
 /* =====================================================
-   AETHER LINK - SITE SETTINGS
+   AETHER NOVA - SITE SETTINGS
    Change your real details here. Everything on the site
    (header, footer, contact page, buttons) reads from this.
 
@@ -8,9 +8,9 @@
    it appears automatically in the footer and contact page.
    ===================================================== */
 window.AETHER_CONFIG = {
-  brand: "Aether Link",
+  brand: "Aether Nova",
 
-  // Change this to your company-domain email (e.g. hello@aetherlink.pk) once you buy the domain.
+  // Change this to your company-domain email (e.g. hello@aethernova.pk) once you buy the domain.
   email: "aether.link.pk@gmail.com",
 
   phone: "",        // e.g. "+92 300 0000000"
