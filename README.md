@@ -1,4 +1,4 @@
-# Aether Link: company website
+# Aether Nova: company website
 
 Plain HTML + Tailwind CSS + JavaScript. No build step needed to edit or preview.
 **Open `index.html` in a browser** to preview (internet is needed for Tailwind CDN and Google Fonts).
@@ -8,10 +8,10 @@ Live site: https://aether-link-tech.github.io/Aether-Link/
 ## Folder map
 ```
 index.html  services.html  projects.html  about.html  resources.html  contact.html  404.html
-assets/   logo.svg (AL monogram)  logo-full.png / logo-full-white.png (crest)  hero.svg  og-image.png (link preview)
+assets/   logo.svg (Aether Nova symbol)  og-image.png (link preview)  brand/ (original logo files)
 css/      styles.css          theme colours (light/dark), buttons, hover effects
 js/       config.js           YOUR contact details, social links, form key, intro video
-          tailwind-config.js  Tailwind colours / fonts (used locally AND by the live build)
+          tailwind-config.js  Tailwind colours / fonts
           icons.js            icon library  (<span data-icon="ai"></span>)
           components.js       shared header + footer, dark mode, mobile menu
           main.js             reveal animation, filters, contact form
