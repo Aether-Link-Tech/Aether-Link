@@ -42,6 +42,26 @@
     reveals.forEach(function (el) { el.classList.add('in'); });
   }
 
+  /* 3b. Cursor spotlight on cards (.lift): sets --mx/--my used by the CSS glow */
+  $$('.lift').forEach(function (card) {
+    card.addEventListener('pointermove', function (e) {
+      var r = card.getBoundingClientRect();
+      card.style.setProperty('--mx', (e.clientX - r.left) + 'px');
+      card.style.setProperty('--my', (e.clientY - r.top) + 'px');
+    });
+  });
+
+  /* 3c. Rotating word in the hero: <span class="rotator" data-words="A|B|C">A</span> */
+  var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  $$('.rotator[data-words]').forEach(function (el) {
+    var words = el.dataset.words.split('|'), i = 0;
+    if (reduce || words.length < 2) return;
+    setInterval(function () {
+      el.classList.add('out');
+      setTimeout(function () { i = (i + 1) % words.length; el.textContent = words[i]; el.classList.toggle('out', false); }, 350);
+    }, 2600);
+  });
+
   /* 4. Project filters */
   var btns = $$('.filter-btn');
   btns.forEach(function (b) {
@@ -62,7 +82,7 @@
     $$('option', form.service).forEach(function (o) { if (o.dataset.key === pre) o.selected = true; });
   }
   if (project && form.msg && !form.msg.value) {
-    form.msg.value = 'Hi Aether Link, I would like a project similar to your "' + project + '".\n\nAbout my project: ';
+    form.msg.value = 'Hi Aether Nova, I would like a project similar to your "' + project + '".\n\nAbout my project: ';
   }
 
   /* 6. Contact form.
@@ -96,7 +116,7 @@
       body: JSON.stringify({
         access_key: C.formAccessKey,
         subject: subject,
-        from_name: 'Aether Link website',
+        from_name: 'Aether Nova website',
         name: d.get('name'),
         email: d.get('email'),
         phone: d.get('phone') || '-',
